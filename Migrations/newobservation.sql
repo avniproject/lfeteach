@@ -182,7 +182,7 @@ where id in (
 -- Total count is 174
 
 -- updating cfms to 999 to given user
-update teachap.teacher set "Teacher CMSF ID" = ''
+update teachap.teacher set "Teacher CMSF ID" = '999'
 where id in (
 '85161',
 '86043',
