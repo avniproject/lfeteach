@@ -182,7 +182,7 @@ where id in (
 -- Total count is 174
 
 -- updating cfms to 999 to given user
-update teachap.teacher set "Teacher CMSF ID" = '999' ,last_modified_date_time=current_timestamp + ((id % 4000) * interval '1 millisecond'), last_modified_by_id=(select id from users where username = 'vedantr@apteach')
+update individual set observations = jsonb_set(observations,'{2a6ce14d-b712-4c84-86f7-4e42a71dc3c6}',999),last_modified_date_time=current_timestamp + ((id % 4000) * interval '1 millisecond'), last_modified_by_id=(select id from users where username = 'vedantr@apteach')
 where id in (
 85161,
 86043,
@@ -232,13 +232,13 @@ where id in (
 -- update count is 44
 
 -- update cmfs id to 951886 to given id
-update teachap.teacher set "Teacher CMSF ID" = '951886', last_modified_date_time=current_timestamp + ((id % 4000) * interval '1 millisecond'), last_modified_by_id=(select id from users where username = 'vedantr@apteach') where id = 103405;
+update individual set observations = jsonb_set(observations,'{2a6ce14d-b712-4c84-86f7-4e42a71dc3c6}',951886), last_modified_date_time=current_timestamp + ((id % 4000) * interval '1 millisecond'), last_modified_by_id=(select id from users where username = 'vedantr@apteach') where id = 103405;
 -- update count is 1
 
 -- update cmfs id to 14009303 to given id
-update teachap.teacher set "Teacher CMSF ID" = '14009303', last_modified_date_time=current_timestamp + ((id % 4000) * interval '1 millisecond'), last_modified_by_id=(select id from users where username = 'vedantr@apteach') where id = 74705;
+update individual set observations = jsonb_set(observations,'{2a6ce14d-b712-4c84-86f7-4e42a71dc3c6}',14009303), last_modified_date_time=current_timestamp + ((id % 4000) * interval '1 millisecond'), last_modified_by_id=(select id from users where username = 'vedantr@apteach') where id = 103405; , last_modified_date_time=current_timestamp + ((id % 4000) * interval '1 millisecond'), last_modified_by_id=(select id from users where username = 'vedantr@apteach') where id = 74705;
 -- update count is 1
 
 -- update cmfs id to 14118284 to given id
-update teachap.teacher set "Teacher CMSF ID" = '14118284', last_modified_date_time=current_timestamp + ((id % 4000) * interval '1 millisecond'), last_modified_by_id=(select id from users where username = 'vedantr@apteach') where id = 78686;
+update individual set observations = jsonb_set(observations,'{2a6ce14d-b712-4c84-86f7-4e42a71dc3c6}',14118284), last_modified_date_time=current_timestamp + ((id % 4000) * interval '1 millisecond'), last_modified_by_id=(select id from users where username = 'vedantr@apteach') where id = 78686;
 -- update count is 1
