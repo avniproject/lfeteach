@@ -1,6 +1,7 @@
 // To run this program open terminal save this script in the file and run this using node sample command: node <file_name.js>
 // Please provide the id in userId array
 // By default it will disable users if you want to enable the users then pass false flag to userUpdate function.
+// Please replace the URL with "app.avniproject.org" if you are updating avni users.
 
 
 const userId = [];
