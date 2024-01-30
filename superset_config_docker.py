@@ -22,9 +22,6 @@
 # It ends up being imported by docker/superset_config.py which is loaded by
 # superset/config.py
 #
-from flask import session
-from flask import Flask
-from datetime import timedelta
 
 #SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://pguser:pgpwd@some.host/superset"
 #SQLALCHEMY_ECHO = True
@@ -37,20 +34,31 @@ AUTH_RATE_LIMITED = True
 AUTH_RATE_LIMIT = "5 per second"
 
 APP_NAME = "Teach Nagaland Reporting"
-SESSION_COOKIE_SECURE = True
-SESSION_COOKIE_SAMESITE = 'Strict'
 
 
-def make_session_permanent():
-    '''
-    Enable maxAge for the cookie 'session'
-    '''
-    session.permanent = True
 
-# Set up max age of session to 24 hours
-PERMANENT_SESSION_LIFETIME = timedelta(minutes=10)
-def FLASK_APP_MUTATOR(app: Flask) -> None:
-    app.before_request_funcs.setdefault(None, []).append(make_session_permanent)
+#
+# Flask session cookie options
+#
+# See https://flask.palletsprojects.com/en/1.1.x/security/#set-cookie-options
+# for details
+#
+SESSION_COOKIE_HTTPONLY = True  # Prevent cookie from being read by frontend JS?
+SESSION_COOKIE_SECURE = True  # Prevent cookie from being transmitted over non-tls?
+SESSION_COOKIE_SAMESITE = "Strict"
+# Whether to use server side sessions from flask-session or Flask secure cookies
+SESSION_SERVER_SIDE = True
+# config using Redis as the backend for server side sessions
+
+from redis import Redis
+
+SESSION_SERVER_SIDE = True
+SESSION_USE_SIGNER = True
+SESSION_TYPE = "redis"
+SESSION_REDIS = Redis(host="localhost", port=6379, db=0)
+#
+# Other possible config options and backends:
+# # https://flask-session.readthedocs.io/en/latest/config.html
 
 
 MAPBOX_API_KEY="pk.eyJ1Ijoic2FjaGluazAxIiwiYSI6ImNsYnl0bHEzaDJpa2szcG50NTg3OG9zeTQifQ.7vUqHgSEx9zqlQWNKw-DxA"
