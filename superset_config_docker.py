@@ -48,7 +48,7 @@ def make_session_permanent():
     session.permanent = True
 
 # Set up max age of session to 24 hours
-PERMANENT_SESSION_LIFETIME = timedelta(minutes=1)
+PERMANENT_SESSION_LIFETIME = timedelta(minutes=10)
 def FLASK_APP_MUTATOR(app: Flask) -> None:
     app.before_request_funcs.setdefault(None, []).append(make_session_permanent)
 
