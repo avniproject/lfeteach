@@ -55,7 +55,7 @@ from redis import Redis
 SESSION_SERVER_SIDE = True
 SESSION_USE_SIGNER = True
 SESSION_TYPE = "redis"
-SESSION_REDIS = Redis(host="localhost", port=6379, db=0)
+SESSION_REDIS = Redis(host="superset-cache", port=6379, db=0)
 #
 # Other possible config options and backends:
 # # https://flask-session.readthedocs.io/en/latest/config.html
