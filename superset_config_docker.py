@@ -54,6 +54,10 @@ SESSION_SERVER_SIDE = True
 #from flask_session import RedisSessionInterface
 from redis import Redis
 
+SECRET_KEY = 'PUjPepZA8kE6R1MfNmsbC3YrVsxMu5vbVvf8exL11b10PRPlk0bIKIV9'
+PREVIOUS_SECRET_KEY = 'TEST_NON_DEV_SECRET'
+PERMANENT_SESSION_LIFETIME = timedelta(minutes=10)
+
 SESSION_USE_SIGNER = True
 SESSION_TYPE = 'redis'
 SESSION_REDIS = Redis(host="superset-cache", port=6379, db=0)
@@ -67,7 +71,7 @@ MAPBOX_API_KEY="pk.eyJ1Ijoic2FjaGluazAxIiwiYSI6ImNsYnl0bHEzaDJpa2szcG50NTg3OG9ze
 FEATURE_FLAGS = {
         "ALERT_REPORTS": True,
         "DASHBOARD_RBAC": True,
-        "ENABLE_JAVASCRIPT_CONTROLS": True,
+        "ENABLE_JAVASCRIPT_CONTROLS": False,
         "ENABLE_TEMPLATE_PROCESSING":False
         }
 ENABLE_JAVASCRIPT_CONTROLS = True
