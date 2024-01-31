@@ -22,6 +22,7 @@
 # It ends up being imported by docker/superset_config.py which is loaded by
 # superset/config.py
 #
+from datetime import timedelta
 
 #SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://pguser:pgpwd@some.host/superset"
 #SQLALCHEMY_ECHO = True
@@ -49,16 +50,17 @@ SESSION_COOKIE_SAMESITE = "Strict"
 # Whether to use server side sessions from flask-session or Flask secure cookies
 SESSION_SERVER_SIDE = True
 # config using Redis as the backend for server side sessions
-
+#from flask_session import Session
+#from flask_session import RedisSessionInterface
 from redis import Redis
 
-SESSION_SERVER_SIDE = True
 SESSION_USE_SIGNER = True
-SESSION_TYPE = "redis"
+SESSION_TYPE = 'redis'
 SESSION_REDIS = Redis(host="superset-cache", port=6379, db=0)
 #
 # Other possible config options and backends:
 # # https://flask-session.readthedocs.io/en/latest/config.html
+
 
 
 MAPBOX_API_KEY="pk.eyJ1Ijoic2FjaGluazAxIiwiYSI6ImNsYnl0bHEzaDJpa2szcG50NTg3OG9zeTQifQ.7vUqHgSEx9zqlQWNKw-DxA"
@@ -66,7 +68,7 @@ FEATURE_FLAGS = {
         "ALERT_REPORTS": True,
         "DASHBOARD_RBAC": True,
         "ENABLE_JAVASCRIPT_CONTROLS": True,
-        "ENABLE_TEMPLATE_PROCESSING":True
+        "ENABLE_TEMPLATE_PROCESSING":False
         }
 ENABLE_JAVASCRIPT_CONTROLS = True
 
