@@ -29,14 +29,10 @@ from datetime import timedelta
 WTF_CSRF_ENABLED = True
 
 
-RATELIMIT_ENABLED = True
-RATELIMIT_APPLICATION = "50 per second"
-AUTH_RATE_LIMITED = True
-AUTH_RATE_LIMIT = "5 per second"
-
 APP_NAME = "Teach Nagaland Reporting"
 
-
+# Specify override headers to be included in every response
+OVERRIDE_HTTP_HEADERS = {'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload'}
 
 #
 # Flask session cookie options
