@@ -52,7 +52,11 @@ from redis import Redis
 
 SECRET_KEY = 'PUjPepZA8kE6R1MfNmsbC3YrVsxMu5vbVvf8exL11b10PRPlk0bIKIV9'
 PREVIOUS_SECRET_KEY = 'TEST_NON_DEV_SECRET'
-PERMANENT_SESSION_LIFETIME = timedelta(minutes=10)
+
+SESSION_PERMANENT = True
+
+PERMANENT_SESSION_LIFETIME = timedelta(minutes=5)
+SESSION_REFRESH_EACH_REQUEST = True
 
 SESSION_USE_SIGNER = True
 SESSION_TYPE = 'redis'
@@ -60,8 +64,6 @@ SESSION_REDIS = Redis(host="superset-cache", port=6379, db=0)
 #
 # Other possible config options and backends:
 # # https://flask-session.readthedocs.io/en/latest/config.html
-
-
 
 MAPBOX_API_KEY="pk.eyJ1Ijoic2FjaGluazAxIiwiYSI6ImNsYnl0bHEzaDJpa2szcG50NTg3OG9zeTQifQ.7vUqHgSEx9zqlQWNKw-DxA"
 FEATURE_FLAGS = {
@@ -72,3 +74,9 @@ FEATURE_FLAGS = {
         }
 
 FAB_PASSWORD_COMPLEXITY_ENABLED = True
+
+
+#from flask_login import logout_user
+#from superset.security import SupersetSecurityManager
+
+#CUSTOM_SECURITY_MANAGER = CustomSsoSecurityManager
